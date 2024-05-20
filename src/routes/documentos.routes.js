@@ -30,15 +30,7 @@ router.get("/",async (req, res) => {
     dbx.filesUpload({ path: '/' + file.originalname, contents: fileContents })
         .then(response => {
             console.log('Archivo subido correctamente:', response);
-            dbx.sharingListSharedLinks({ path: '/' + file.originalname })
-                .then(link => {
-                    console.log('Enlace permanente del archivo:', link);
-                    res.send(link.result.links[0].url);
-                })
-                .catch(error => {
-                    console.error('Error al obtener el enlace permanente del archivo:', error);
-                    res.status(500).send('Error al obtener el enlace permanente del archivo.');
-                });
+            
            
         })
         .catch(error => {
