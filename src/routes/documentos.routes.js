@@ -20,16 +20,14 @@ router.get("/",async (req, res) => {
   })
   //vamos a subir un archivo a la base de datos
   // Configurar las claves de la API
-  
+  const token=env(ACCESS_TOKEN)
   // Inicializar el SDK de Dropbox
-  //const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-  //router.post('/upload', upload.single('file'), (req, res) => {
-    // Obtener el archivo cargado
-   // const file = req.file;
-    // Leer el contenido del archivo
-    //const fileContents = fs.readFileSync(file.path);
+  const dbx = new Dropbox({ accessToken: token });
+  router.post('/upload', upload.single('file'), (req, res) => {
+    const file = req.file;
+    const fileContents = fs.readFileSync(file.path);
     // Subir el archivo a Dropbox
-    /*dbx.filesUpload({ path: '/' + file.originalname, contents: fileContents })
+    dbx.filesUpload({ path: '/' + file.originalname, contents: fileContents })
         .then(response => {
             console.log('Archivo subido correctamente:', response);
             dbx.sharingListSharedLinks({ path: '/' + file.originalname })
@@ -47,7 +45,7 @@ router.get("/",async (req, res) => {
             console.error('Error al subir el archivo:', error);
             res.status(500).send('Error al subir el archivo a Dropbox.');
         });
-});*/
+});
 
 
 export default router;
