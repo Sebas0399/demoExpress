@@ -20,7 +20,7 @@ router.get("/",async (req, res) => {
   })
   //vamos a subir un archivo a la base de datos
   // Configurar las claves de la API
-  const token=env(ACCESS_TOKEN)
+  const token=process.env.ACCESS_TOKEN
   // Inicializar el SDK de Dropbox
   const dbx = new Dropbox({ accessToken: token });
   router.post('/upload', upload.single('file'), (req, res) => {
