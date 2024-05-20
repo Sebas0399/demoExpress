@@ -20,7 +20,6 @@ router.get("/",async (req, res) => {
   })
   //vamos a subir un archivo a la base de datos
   // Configurar las claves de la API
- // const ACCESS_TOKEN = 'sl.B1gCtTbzNtzzYEPis4KVoFFQiocUbwwBtZyUsTo3YmLZrE_i-LUPm69Vve3YwhzC0bjlzyAGrd4g4oUrJX3pBDh7DSwe6uUR_aQ4imKSKVdqsMQez4HoIHqgbwVbmZTHTR5bwYl5OrbJnDSGnMgEUCs';
   
   // Inicializar el SDK de Dropbox
   //const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
