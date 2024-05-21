@@ -24,4 +24,20 @@ router.post("/", async (req, res) => {
     })
     res.json(newUsuario)
 })
+router.delete("/:id", async (req, res) => {
+    const usuario = await prisma.usuarios.findUnique({
+        where: {
+            id: parseInt(req.params.id),
+        },
+    });
+    if (!usuario) {
+        return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+    await prisma.usuarios.delete({
+        where: {
+            id: parseInt(req.params.id),
+        },
+    });
+    res.json({ message: "Usuario eliminado correctamente" });
+});
 export default router;

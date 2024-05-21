@@ -41,7 +41,7 @@ model DocumentosUsuarios{
   nombre String
   link String
   extension String
-  usuarios Usuarios @relation(fields: [usuariosId], references: [id])
+  usuarios Usuarios @relation(fields: [usuariosId], references: [id],onDelete: Cascade)
   usuariosId Int
 
 }

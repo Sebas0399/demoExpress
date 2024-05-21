@@ -6,7 +6,7 @@ import documentosRoutes from "./routes/documentos.routes.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors)
+app.use(cors())
 app.use("/usuarios", usuarioRoutes);
 app.use("/documentos", documentosRoutes);
 
